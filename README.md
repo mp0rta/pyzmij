@@ -88,13 +88,3 @@ uv pip install -e .
 ```
 
 This package vendors its `vitaut/zmij` dependency under `third_party/` (no git submodule required).
-
-## Post-release Sanity Check
-
-```bash
-python -m venv .venv-smoke
-. .venv-smoke/bin/activate
-python -m pip install -U pip
-python -m pip install pyzmij
-python -c "import pyzmij; print(pyzmij.backend()); print(pyzmij.format_finite(3.141592653589793))"
-```
