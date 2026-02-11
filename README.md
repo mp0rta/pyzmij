@@ -67,9 +67,6 @@ Input contract:
 - negative zero keeps its sign (`-0.0` -> `"-0.0"`)
 - if `allow_non_finite=True`, non-finite values use JSON tokens (`NaN`, `Infinity`, `-Infinity`)
 
-If you need byte-for-byte compatibility with `json.dumps()` for float sequences, see the `fastjson` package
-in this repo.
-
 ## Building
 
 ```bash
@@ -78,4 +75,3 @@ uv pip install -e .
 
 This package vendors its `vitaut/zmij` dependency under `third_party/` (no git submodule required).
 
-For PyPI release steps, see `pyzmij/RELEASING.md`.

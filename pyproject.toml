@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Python binding for vitaut/zmij float formatting library"
 readme = "README.md"
 license = "MIT"
-authors = [{name = "zmij-fastjson contributors"}]
+authors = [{name = "pyzmij contributors"}]
 requires-python = ">=3.10"
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -19,6 +19,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
