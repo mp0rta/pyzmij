@@ -10,8 +10,10 @@ pip install pyzmij
 
 ```python
 import pyzmij
-print(pyzmij.format_finite(3.141592653589793))
-print(pyzmij.format_join([1.0, -0.0, 3.14], sep=",", json_compatible=True))
+
+vals = [1.0, -0.0, 3.141592653589793]
+with open("out.csv", "w", encoding="utf-8") as f:
+    pyzmij.write_many(f, vals, sep=",", end="\n", json_compatible=True)
 ```
 
 ## API
