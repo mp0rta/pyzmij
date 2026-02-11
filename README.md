@@ -2,6 +2,18 @@
 
 Python C extension for fast formatting of Python float values using vitaut/zmij.
 
+## Quickstart
+
+```bash
+pip install pyzmij
+```
+
+```python
+import pyzmij
+print(pyzmij.format_finite(3.141592653589793))
+print(pyzmij.format_join([1.0, -0.0, 3.14], sep=",", json_compatible=True))
+```
+
 ## API
 
 ```python
@@ -75,3 +87,12 @@ uv pip install -e .
 
 This package vendors its `vitaut/zmij` dependency under `third_party/` (no git submodule required).
 
+## Post-release Sanity Check
+
+```bash
+python -m venv .venv-smoke
+. .venv-smoke/bin/activate
+python -m pip install -U pip
+python -m pip install pyzmij
+python -c "import pyzmij; print(pyzmij.backend()); print(pyzmij.format_finite(3.141592653589793))"
+```

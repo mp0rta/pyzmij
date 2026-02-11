@@ -10,6 +10,7 @@ readme = "README.md"
 license = "MIT"
 authors = [{name = "pyzmij contributors"}]
 requires-python = ">=3.10"
+keywords = ["float", "formatting", "json", "python", "c-extension"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -25,3 +26,8 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/mp0rta/pyzmij"
+Repository = "https://github.com/mp0rta/pyzmij"
+Issues = "https://github.com/mp0rta/pyzmij/issues"
