@@ -2,6 +2,15 @@ name: Publish pyzmij
 
 on:
   workflow_dispatch:
+    inputs:
+      repository:
+        description: "Publish target for manual runs"
+        required: true
+        default: testpypi
+        type: choice
+        options:
+          - testpypi
+          - pypi
   release:
     types: [published]
 
@@ -89,7 +98,7 @@ jobs:
     needs: [verify-artifacts]
     runs-on: ubuntu-latest
     environment:
-      name: pypi
+      name: ${{ github.event_name == 'workflow_dispatch' && inputs.repository == 'testpypi' && 'testpypi' || 'pypi' }}
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -101,7 +110,15 @@ jobs:
           find dist -type f \( -name "*.whl" -o -name "*.tar.gz" \) -exec cp {} pyzmij-dist/ \;
           ls -la pyzmij-dist
 
+      - name: Publish to TestPyPI
+        if: github.event_name == 'workflow_dispatch' && inputs.repository == 'testpypi'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: pyzmij-dist
+          repository-url: https://test.pypi.org/legacy/
+
       - name: Publish to PyPI
+        if: github.event_name != 'workflow_dispatch' || inputs.repository == 'pypi'
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: pyzmij-dist
