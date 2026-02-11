@@ -86,7 +86,7 @@ jobs:
           python -m venv .venv-test
           . .venv-test/bin/activate
           python -m pip install -U pip
-          python -m pip install pyzmij-dist/*.whl
+          python -m pip install --no-index --find-links pyzmij-dist pyzmij
           python -c "import pyzmij; print(pyzmij.backend())"
 
       - name: Run tests against installed wheel
