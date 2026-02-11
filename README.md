@@ -1,6 +1,6 @@
 # pyzmij
 
-Python C extension for the Żmij (vitaut/zmij) float formatting library.
+Python C extension for fast formatting of Python float values using vitaut/zmij.
 
 ## API
 
@@ -49,7 +49,7 @@ This package intentionally does not replace Python's built-in `print()` behavior
 
 ## Semantics
 
-`format_finite(x)` returns the **shortest** correctly-rounded decimal representation for finite floats.
+`format_finite(x)` returns the **shortest** correctly-rounded decimal representation for finite Python float values.
 In particular, integer-valued floats may not include a trailing `.0` (e.g. `1.0` may format as `"1"`).
 
 Input contract:
