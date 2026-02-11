@@ -27,7 +27,7 @@ jobs:
       - name: Install from built wheel and smoke import
         run: |
           python -m pip install -U pip
-          python -m pip install dist/*.whl
+          python -m pip install --no-index --find-links dist pyzmij
           python -c "import pyzmij; print(pyzmij.backend())"
 
       - name: Run tests
