@@ -33,7 +33,7 @@ jobs:
           CIBW_ARCHS_LINUX: "x86_64"
           CIBW_BUILD_VERBOSITY: 1
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: pyzmij-wheels-${{ matrix.os }}
           path: ./wheelhouse/*.whl
@@ -52,7 +52,7 @@ jobs:
           python -m pip install -U pip build
           python -m build . -s
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: pyzmij-sdist
           path: dist/*.tar.gz
